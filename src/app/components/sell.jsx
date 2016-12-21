@@ -44,21 +44,29 @@ const items = [
 
 export class Sell extends Component {
 
+  titleCase(string) {
+    if (!string) {
+      return string;
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   render() {
+    const pageType = this.props.route.pageType || 'unknown';
+
     const dispItems = [];
     for (let i = 0; i < items.length; i++) {
       dispItems.push(
         <BuyItem className="item" key={i} item={items[i]}>hihi</BuyItem>
       );
     }
-    const pageType = this.props.params.type || 'unknown';
     return (
       <div style={styles.container2}>
         <Grid>
           <Row className="show-grid">
             <Col xs={12} md={12}>
               <PageHeader>
-                {pageType}
+                {this.titleCase(pageType)}
               </PageHeader>
             </Col>
           </Row>
@@ -74,6 +82,7 @@ export class Sell extends Component {
 
 Sell.propTypes = {
   children: React.PropTypes.node,
-  params: React.PropTypes.any
+  params: React.PropTypes.any,
+  route: React.PropTypes.any
   // route: React.PropTypes.shape({page: React.PropTypes.node})
 };

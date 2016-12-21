@@ -59,19 +59,24 @@ export class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav activeKey={this.state.activeKey}>
-              <LinkContainer to="/sell/engines">
+              <LinkContainer to="/engines">
                 <NavItem eventKey={1}>
                   Engines
                 </NavItem>
               </LinkContainer>
-              <LinkContainer to="/sell/carriages">
+              <LinkContainer to="/carriages">
                 <NavItem eventKey={2}>
                   Carriages
                 </NavItem>
               </LinkContainer>
-              <LinkContainer to="/sell/accessories">
+              <LinkContainer to="/accessories">
                 <NavItem eventKey={3}>
                   Accessories
+                </NavItem>
+              </LinkContainer>
+              <LinkContainer to="/shipping">
+                <NavItem eventKey={4}>
+                  Shipping
                 </NavItem>
               </LinkContainer>
               <NavDropdown eventKey={4} title="Dropdown" id="basic-nav-dropdown">
@@ -83,7 +88,7 @@ export class Header extends Component {
               </NavDropdown>
             </Nav>
             <Nav pullRight>
-              <LinkContainer to="/account">
+              <LinkContainer to="/profile">
                 <NavItem eventKey={4} href="#">
                   <Glyphicon glyph="user"/>
                 </NavItem>

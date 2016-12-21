@@ -6,11 +6,15 @@ import {
   Panel,
   ListGroup,
   ListGroupItem,
-  Image
+  Image,
+  ResponsiveEmbed,
+  FormGroup,
+  FormControl,
+  Form,
+  ControlLabel
 } from 'react-bootstrap';
 
 import img from '../img/splash.jpg';
-
 // const styles = {};
 
 export class BuyItem extends Component {
@@ -23,7 +27,6 @@ export class BuyItem extends Component {
   }
 
   render() {
-    console.log(this.props);
     const item = this.props.item;
     // const id = item.id || 'item';
     const name = item.name || 'name';
@@ -37,7 +40,9 @@ export class BuyItem extends Component {
         <Panel header={name}>
           <ListGroup fill>
             <ListGroupItem>
-              <Image src={img} rounded/>
+              <ResponsiveEmbed a16by9>
+                <Image src={img} rounded/>
+              </ResponsiveEmbed>
             </ListGroupItem>
             <ListGroupItem>
               {description}
@@ -52,6 +57,16 @@ export class BuyItem extends Component {
               {price}
             </ListGroupItem>
             <ListGroupItem>
+              <Form horizontal>
+                <FormGroup controlId="formHorizontalEmail">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Qty
+                  </Col>
+                  <Col sm={10}>
+                    <FormControl type="number" placeholder="quantity" min="0"/>
+                  </Col>
+                </FormGroup>
+              </Form>
               <Button bsStyle="primary" bsSize="large" block>Buy now</Button>
             </ListGroupItem>
           </ListGroup>
@@ -60,9 +75,8 @@ export class BuyItem extends Component {
     );
   }
 }
-
 BuyItem.propTypes = {
   children: React.PropTypes.node,
   item: React.PropTypes.any
-  // route: React.PropTypes.shape({page: React.PropTypes.node})
+  // route: React.PropTypes.shape({page: React.PropTypes.node})}
 };
